@@ -1,0 +1,45 @@
+{
+    "name": "zn-vuejs-material",
+    "version": "0.0.1",
+    "description": "VueJS Material for ZeroNet",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "AnthyG",
+    "license": "ISC",
+    "devDependencies": {
+        "browserify": "^15.0.0",
+        "browserify-shim": "^3.8.14",
+        "gulp": "^3.9.1",
+        "gulp-autoprefixer": "^4.1.0",
+        "gulp-clean-css": "^3.9.2",
+        "gulp-concat": "^2.6.1",
+        "gulp-csscomb": "^3.0.8",
+        "gulp-rename": "^1.2.2",
+        "gulp-sass": "^3.1.0",
+        "gulp-sourcemaps": "^2.6.3",
+        "gulp-uglify": "^3.0.0",
+        "gulp-util": "^3.0.8",
+        "material-design-icons": "^3.0.1",
+        "sass-material-colors": "0.0.5",
+        "vinyl-buffer": "^1.0.1",
+        "vinyl-source-stream": "^2.0.0"
+    },
+    "dependencies": {
+        "vue": "^2.5.13",
+        "vue-hot-reload-api": "^2.3.0",
+        "vue-material": "^1.0.0-beta-7"
+    },
+    "browser": {
+        "vue": "vue/dist/vue.common.js"
+    },
+    "browserify-shim": {
+        "jquery": "$"
+    },
+    "browserify": {
+        "transform": [
+            "browserify-shim"
+        ]
+    }
+}

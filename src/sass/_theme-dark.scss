@@ -1,0 +1,4 @@
+@import "../../node_modules/vue-material/dist/theme/engine";
+@import "theme_colors";
+@include md-register-theme("default-dark", ( primary: $primary-dark, accent: $accent-dark, theme: dark));
+@import "../../node_modules/vue-material/dist/theme/all";
