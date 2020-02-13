@@ -4,6 +4,6 @@ node_modules/
 /index.html
 
 disabled/
-
+package-lock.json
 /data/
 /content.json

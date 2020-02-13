@@ -51,11 +51,11 @@ app = new Vue({
                                 <md-icon>public</md-icon>
                                 <span class="md-list-item-text">Inbox</span>
                             </md-list-item>
-                            <md-list-item v-for="(i) in 15">
+                            <md-list-item v-for="(i) in 1">
                                 <md-icon>group</md-icon>
                                 <span class="md-list-item-text">Inbox</span>
                             </md-list-item>
-                            <md-list-item v-for="(i) in 15">
+                            <md-list-item v-for="(i) in 1">
                                 <md-icon>person</md-icon>
                                 <span class="md-list-item-text">Inbox</span>
                             </md-list-item>
@@ -284,7 +284,7 @@ function showError(msg, t) {
 
 (function() {
     showError(
-        "<b>As a warning</b>, <i>this Zite is still in Alpha</i>!",
+        "<b>Предупреждение</b>, <i>Данный сайт находится в альфе</i>!",
         10000
     );
 })();

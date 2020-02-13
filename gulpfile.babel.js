@@ -19,19 +19,18 @@ var paths = {
     scripts: ['./src/**/*.js']
 };
 
-gulp.task("watch", function() {
-    gulp.watch(paths.pages, ["html"]);
-    gulp.watch(paths.styles, ["styles"]);
-    gulp.watch(paths.styles2, ["styles2"]);
-    gulp.watch(paths.scripts, ["scripts"]);
-});
+function watch(){
+    gulp.watch(paths.pages, gulp.series("html"));
+    gulp.watch(paths.styles, gulp.series("styles"));
+    gulp.watch(paths.styles2, gulp.series("styles2"));
+    gulp.watch(paths.scripts, gulp.series("scripts"));
+}
 
-gulp.task("html", function() {
-    gulp.src(paths.pages)
-        .pipe(gulp.dest("."));
-});
+function html(){
+    gulp.src(paths.pages).pipe(gulp.dest("."));
+}
 
-gulp.task("styles", function() {
+function styles() {
     gulp.src(paths.styles)
         .pipe(sass({ outputStyle: 'compact', precision: 10 })
             .on('error', sass.logError)
@@ -46,9 +45,9 @@ gulp.task("styles", function() {
             suffix: '.min'
         }))
         .pipe(gulp.dest('./css/'));
-});
+}
 
-gulp.task("styles2", function() {
+function styles2() {
     gulp.src(paths.styles2)
         .pipe(autoprefixer())
         .pipe(csscomb())
@@ -60,19 +59,19 @@ gulp.task("styles2", function() {
             suffix: '.min'
         }))
         .pipe(gulp.dest('./css/'));
-});
+}
 
-gulp.task("fonts", function() {
+function fonts(){
     gulp.src(paths.fonts)
         .pipe(gulp.dest('./css/'));
-});
+}
 
-gulp.task("fontcss", function() {
+function fontcss() {
     gulp.src(paths.fontcss)
         .pipe(gulp.dest('./src/css'));
-});
+}
 
-gulp.task("scripts", function() {
+function scripts() {
     browserify({
             basedir: ".",
             debug: true,
@@ -94,7 +93,27 @@ gulp.task("scripts", function() {
         // .pipe(uglify())
         .pipe(sourcemaps.write("./"))
         .pipe(gulp.dest("./js/"));
-});
+}
 
-gulp.task("default", ["fontcss", "fonts", "scripts", "styles", "styles2", "html", "watch"]);
-gulp.task("build", ["fontcss", "fonts", "scripts", "styles", "styles2", "html"]);
+
+function Default(){
+fontcss()
+fonts()
+scripts()
+styles()
+styles2()
+html()
+
+}
+
+function Watch(){
+    Default()
+    watch()
+}
+exports.default = Watch
+exports.build = Default
+
+exports.html = html
+exports.styles = styles
+exports.styles2 = styles2
+exports.scripts = scripts
