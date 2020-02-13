@@ -1,10 +1,10 @@
 # ZN-VueJS-Material
 Fork https://github.com/AnthyG/ZN-VueJS-Material
 First start
->>npm install
+>npm install
 
 Build and Watch 
->>gulp
+>gulp
 
 Just build
->>gulp build
+>gulp build
